@@ -91,3 +91,84 @@
 .accordion:not(:hover) .collapsible-item-label-dropdown-icon {
   opacity: 0;
 }
+
+@media (min-width: 539px) {
+
+  .accordion {
+    width: 60vw;
+  }
+
+  .accordion__title {
+    font-size: 2.2rem;
+  }
+
+  .collapsible-item-label {
+    font-size: 1rem;
+  }
+
+}
+
+
+@media (min-width: 819px) {
+
+  .accordion {
+    width: 60vw;
+  }
+
+  .collapsible-item-label {
+    font-size: 1.3rem;
+  }
+
+  .inp:checked ~ .collapsible-item-content,
+  .inp:not(:checked):hover ~ .collapsible-item-content,
+  .collapsible-item-content:hover {
+    padding: 1em;
+  }
+
+}
+
+@media (min-width: 1200px) {
+
+  .accordion {
+    width: 34vw;
+  }
+
+  .accordion__title {
+    font-size: 2.5rem;
+  }
+
+}
+
+@media (hover: hover) {
+  
+  .inp:not(:checked):hover + .collapsible-item-label-dropdown-icon {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    align-items: center;
+  }
+
+  .inp:not(:checked):hover ~ .collapsible-item-content,
+  .collapsible-item-content:hover {
+    max-height: 100vh;
+    padding: 0.3em;
+    transition: all 0.5s;
+  }
+
+  .collapsible-accordion:hover .collapsible-item-label-dropdown-icon:not(:checked) {
+    transform: rotate(45deg);
+  }
+
+  .accordion:not(:hover) .inp:not(:checked) + .collapsible-item-label {
+    color: blue;
+  }
+
+}
+
+@media (hover: none) {
+  
+  .accordion:not(:hover) .collapsible-item-label-dropdown-icon {
+    opacity: 1;
+  }
+
+}
