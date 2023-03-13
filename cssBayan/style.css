@@ -1,0 +1,174 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+}
+
+.inp {
+  opacity: 0;
+  z-index: -1;
+}
+
+.wrapper{
+  width: 100%;
+  height: 100%;
+}
+
+.accordion {
+  width: 80vw;
+  height: max-content;
+  margin: 4% auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.accordion__title {
+  padding-bottom: 1vh;
+  border-bottom: 0.1rem solid lightgray;
+  font-size: 1.5rem;
+}
+
+.collapsible-accordion {
+  border-bottom: 0.1rem solid lightgrey;
+  overflow: hidden;
+}
+
+.collapsible-item-label {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  cursor: pointer;
+  align-items: center;
+  font-size: 0.8rem;
+}
+
+.collapsible-item-content {
+  max-height: 0;
+  transition: all 0.7s;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.img {
+  width: 100%;
+  height: 70%;
+  cursor: pointer;
+  transition: all .5s;
+  padding: 0 1em;
+}
+
+.collapsible-accordion:active .collapsible-item,
+.collapsible-accordion:active .collapsible-item-label {
+  opacity: .9;
+  color: blue;
+}
+
+.inp:checked + .collapsible-item-label-dropdown-icon {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  align-items: center;
+}
+
+.collapsible-item-label-dropdown-icon {
+  font-size: 2em;
+  font-weight: 400;
+  transition: .5s;
+}
+
+.inp:checked ~ .collapsible-item-content {
+  max-height: 100vh;
+  padding: 0.3em;
+  transition: all 0.5s;
+}
+
+.inp:checked + .collapsible-item-label span {
+  transform: rotate(45deg);
+}
+
+.accordion:not(:hover) .collapsible-item-label-dropdown-icon {
+  opacity: 0;
+}
+
+@media (min-width: 539px) {
+
+  .accordion {
+    width: 60vw;
+  }
+
+  .accordion__title {
+    font-size: 2.2rem;
+  }
+
+  .collapsible-item-label {
+    font-size: 1rem;
+  }
+
+}
+
+
+@media (min-width: 819px) {
+
+  .accordion {
+    width: 60vw;
+  }
+
+  .collapsible-item-label {
+    font-size: 1.3rem;
+  }
+
+  .inp:checked ~ .collapsible-item-content,
+  .inp:not(:checked):hover ~ .collapsible-item-content,
+  .collapsible-item-content:hover {
+    padding: 1em;
+  }
+
+}
+
+@media (min-width: 1200px) {
+
+  .accordion {
+    width: 34vw;
+  }
+
+  .accordion__title {
+    font-size: 2.5rem;
+  }
+
+}
+
+@media (hover: hover) {
+  
+  .inp:not(:checked):hover + .collapsible-item-label-dropdown-icon {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    align-items: center;
+  }
+
+  .inp:not(:checked):hover ~ .collapsible-item-content,
+  .collapsible-item-content:hover {
+    max-height: 100vh;
+    padding: 0.3em;
+    transition: all 0.5s;
+  }
+
+  .collapsible-accordion:hover .collapsible-item-label-dropdown-icon:not(:checked) {
+    transform: rotate(45deg);
+  }
+
+  .accordion:not(:hover) .inp:not(:checked) + .collapsible-item-label {
+    color: blue;
+  }
+
+}
+
+@media (hover: none) {
+  
+  .accordion:not(:hover) .collapsible-item-label-dropdown-icon {
+    opacity: 1;
+  }
+
+}
